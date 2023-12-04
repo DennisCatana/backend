@@ -1,32 +1,29 @@
 /* Pasos */
 
 //1. npm init --y
-//2. nom i mongoose para una libreria 
-//3. ir ar: https://nodejs.org/api/http.html#http
-//4. buscar crear un servvidor y ubicarlo en csj 
-// copiar el codigo  
-
-// const http = require('node:http');
-
-// // Create a local server to receive data from
-// const server = http.createServer((req, res) => {
-//   res.writeHead(200, { 'Content-Type': 'application/json' });
-//   res.end(JSON.stringify({
-//     data: 'Hello World!',
-//   }));
-// });
-
-// server.listen(8000);
+//2. npm i express
+//3. nom i mongoose para una libreria 
+//4. ir ar: https://nodejs.org/api/http.html#http
+//5. buscar crear un servvidor y ubicarlo en csj 
+//6. copiar el codigo  
 
 
 const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+})
+
+app.get('/', (req, res) => {
+  res.send('Bienvenidos')
+})
+
+app.get('/dashboard', (req, res) => {
+  res.send('Dashboard principal')
+})
+
+app.use((req,res) => {
+  res.send("404-Not Found")
 })
