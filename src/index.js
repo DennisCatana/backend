@@ -8,6 +8,8 @@
 //6. copiar el codigo  
 
 //-------------------------------------
+                  /* CLASE 08 */
+                    /* RUTAS */
 
 const express = require('express')
 const {engine} = require('express-handlebars')
@@ -27,7 +29,7 @@ app.use((req,res) => {
 })*/
 
 //----------------------------------------------------------
-
+                        /* REGISTRO */
 /* Mandar info en Json
 app.get -> obtener
 app.post -> Registrar
@@ -43,7 +45,7 @@ app.post('/register',(req,res)=>{
 })*/
 
 //----------------------------------------------------------
-
+                          /* OBTENER */
 /*app.get('/pedido/:abc',(req,res)=>{
   res.send(`El pedido es hamburguesa ${req.params.abc}`)
 })
@@ -74,7 +76,7 @@ app.get('/hamburguesa/json',(req,res)=>{
 
 //-------------------------------------------------------------
 
-//Usar un motor de plantillas
+/*Usar un motor de plantillas
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 //Unicacion del directorio views
@@ -86,7 +88,47 @@ app.get('/pepin/vegana',(req,res)=>{
 
 app.get('/pepin/about',(req,res)=>{
   res.render('about')
+})*/
+
+//-------------------------------------------------------------
+                         /*CLASE 9  */
+                      /* MIDELWAR */
+
+/*app.use(express.json())
+app.get('/entrada',(req,res)=>{
+   res.render('Entrada al local')
 })
+
+//CREAR UN MIDDLEWARE
+
+app.use((req,res,next)=>{
+  const{email,password} = req.body
+  if(email=="dennis@gmail.com" && password=="123"){
+    next()
+  }else{
+    res.send("Usuario no registrado")
+  }
+})*/
+
+//-------------------------------------------------------------
+
+app.get('/',(req,res)=>{
+  res.send('Landing Page')
+})
+
+app.get('/dashboard',(req,res)=>{
+  res.send('Landing Page')
+})
+
+
+app.get('/pedido',(req,res)=>{
+  res.send(`Bienvenido -- ${req.body.email} Listo para tomar su orden`)
+})
+
+
+
+
+
 
 app.listen(port, () => {
   console.log(`usted esta en el puerto ${port}`)
